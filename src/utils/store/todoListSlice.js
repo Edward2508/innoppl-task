@@ -9,8 +9,11 @@ const todoListSlice = createSlice({
     addtodolist: (state, action) => {
       state.todolist.push(action.payload);
     },
+    removeList: (state) => {
+      state.todolist.pop();
+    },
   },
 });
 
-export const { addtodolist } = todoListSlice.actions;
+export const { addtodolist, removeList } = todoListSlice.actions;
 export default todoListSlice.reducer;

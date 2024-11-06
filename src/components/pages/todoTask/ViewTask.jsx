@@ -2,12 +2,13 @@ import React, { useState } from "react";
 import Sidebar from "../dashboard/sidebar/Sidebar";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./ViewTask.css";
-
+import { UseDispatch, useDispatch } from "react-redux";
+import { addtodolist, removeList } from "../../../utils/store/todoListSlice";
 const ViewTask = () => {
   const [tasks, setTasks] = useState([]);
   const [taskInput, setTaskInput] = useState("");
   const [editIndex, setEditIndex] = useState(null);
-
+  const dispatch = useDispatch();
   const handleAddTask = () => {
     if (editIndex !== null) {
       const updatedTasks = tasks.map((task, index) =>
@@ -17,6 +18,7 @@ const ViewTask = () => {
       setEditIndex(null);
     } else {
       setTasks([...tasks, taskInput]);
+      dispatch(addtodolist([...tasks, taskInput]));
     }
 
     setTaskInput("");
@@ -30,6 +32,7 @@ const ViewTask = () => {
   const handleDeleteTask = (index) => {
     const updatedTasks = tasks.filter((_, i) => i !== index);
     setTasks(updatedTasks);
+    dispatch(removeList(updatedTasks));
   };
 
   return (
@@ -54,7 +57,7 @@ const ViewTask = () => {
               disabled={!taskInput}
               onClick={handleAddTask}
             >
-              {editIndex !== null ? "Update" : "Add"}{" "}
+              {editIndex !== null ? "Update" : "Add"}
             </button>
           </div>
           <div className="mt-3 task-list">
