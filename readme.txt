@@ -16,6 +16,7 @@ Steps
 
 1. Once packages are installed create folder structure
 2. Provide Router in App.js
+3. To login hit the API https://dummyjson.com/users and use username and password of any user
 
         Pages
         ======
@@ -39,5 +40,6 @@ Steps
             * Created UI to Enter task
             * Created Edit/Delete functionality to create task
             * Disabled add button if task is empty
+            * Created Store and Slices and made values updated is store
 
         4. Cleared localstorage and Redux before logging out
