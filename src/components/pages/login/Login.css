@@ -1,0 +1,35 @@
+.login-container {
+  height: 100vh;
+}
+
+.login-img {
+  background-image: url("../../../images/login.png");
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+}
+
+.login-form {
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  border-radius: 15px;
+  color: #515696;
+  font-size: larger;
+  font-weight: 500;
+  background-color: #eaeef9;
+}
+
+.new-user-link {
+  font-size: small;
+  text-decoration-line: none;
+  color: #515696;
+}
+
+#login-btn-submit {
+  background-color: #515696;
+  color: #eaeef9;
+}
+.error-message {
+  color: red;
+  font-size: small;
+  font-weight: 400;
+}

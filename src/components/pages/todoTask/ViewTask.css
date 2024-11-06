@@ -1,0 +1,22 @@
+.todo-container {
+  background-color: aliceblue;
+}
+
+.todo-box {
+  width: 55%;
+  min-height: 40vh;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  background-color: white;
+}
+
+.enter-task {
+  height: 8vh;
+}
+
+.task-list {
+  border: 1px solid grey;
+  width: 80%;
+  border-radius: 5px;
+  margin-left: 10%;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}

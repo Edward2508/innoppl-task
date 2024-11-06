@@ -1,0 +1,24 @@
+.side-bar {
+  min-height: 100vh;
+}
+
+.sidebar {
+  width: 18vw;
+  background-color: #c3dcf2;
+  /* background-color: #eaeef9; */
+}
+
+.sidebar-header {
+  max-width: 10px;
+}
+
+.logo-img {
+  max-width: 40px;
+}
+.logo-name {
+  font-weight: 500;
+  font-size: 30px;
+}
+.nav-link {
+  color: black;
+}
