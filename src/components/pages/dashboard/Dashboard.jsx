@@ -7,13 +7,18 @@ import Sidebar from "./sidebar/Sidebar";
 import View from "./user/View";
 
 const Dashboard = () => {
+  console.log("Inside Dashboard");
   const dispatch = useDispatch();
   const userDetailslist = useSelector((store) => store.user.details);
   console.log("userDetailslist", userDetailslist);
+
   useEffect(() => {
     const storedAccessToken = localStorage.getItem("authToken");
-    getAuthUser(storedAccessToken);
-  }, []);
+    if (storedAccessToken && userDetailslist.length === 0) {
+      getAuthUser(storedAccessToken);
+    }
+  }, [userDetailslist.length]);
+
   const getAuthUser = async (token) => {
     try {
       const data = await getUser(token);
@@ -22,9 +27,11 @@ const Dashboard = () => {
       console.error("Error fetching user data:", error);
     }
   };
+
   if (userDetailslist.length === 0) {
     return <Loader />;
   }
+
   return (
     <div className="d-flex">
       <Sidebar />

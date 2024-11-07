@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Edit from "./Edit";
 import "./View.css";
 import { userDetails } from "../../../../utils/store/authUserSlice";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
 const View = ({ userData }) => {
   const dispatch = useDispatch();
@@ -19,9 +19,10 @@ const View = ({ userData }) => {
     toast.success("Data Updated Successfully!");
     setIsEditing(false);
   };
+  const authUserDetails = useSelector((store) => store.user.details);
 
   const { image, firstName, lastName, age, email, phone, role, birthDate } =
-    currentUserData;
+    authUserDetails[0];
 
   return (
     <>
