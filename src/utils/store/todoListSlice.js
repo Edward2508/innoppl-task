@@ -16,8 +16,12 @@ const todoListSlice = createSlice({
       const { index, newTask } = action.payload;
       state.todolist[index] = newTask;
     },
+    exit: (state) => {
+      state.todolist = [];
+    },
   },
 });
 
-export const { addtodolist, removeList, updateTask } = todoListSlice.actions;
+export const { addtodolist, removeList, updateTask, exit } =
+  todoListSlice.actions;
 export default todoListSlice.reducer;

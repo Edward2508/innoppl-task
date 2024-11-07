@@ -3,11 +3,13 @@ import { Link } from "react-router-dom";
 import logo from "../../../../images/service.png";
 import { useDispatch } from "react-redux";
 import { logout } from "../../../../utils/store/authUserSlice";
+import { exit } from "../../../../utils/store/todoListSlice";
 
 const Sidebar = () => {
   const dispatch = useDispatch();
   const handleLogout = () => {
     dispatch(logout());
+    dispatch(exit());
     localStorage.clear();
   };
   return (
