@@ -2,25 +2,26 @@ import React, { useState } from "react";
 import Sidebar from "../dashboard/sidebar/Sidebar";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./ViewTask.css";
-import { UseDispatch, useDispatch } from "react-redux";
-import { addtodolist, removeList } from "../../../utils/store/todoListSlice";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  addtodolist,
+  removeList,
+  updateTask,
+} from "../../../utils/store/todoListSlice";
+
 const ViewTask = () => {
-  const [tasks, setTasks] = useState([]);
+  const tasks = useSelector((state) => state.todo.todolist);
   const [taskInput, setTaskInput] = useState("");
   const [editIndex, setEditIndex] = useState(null);
   const dispatch = useDispatch();
+
   const handleAddTask = () => {
     if (editIndex !== null) {
-      const updatedTasks = tasks.map((task, index) =>
-        index === editIndex ? taskInput : task
-      );
-      setTasks(updatedTasks);
+      dispatch(updateTask({ index: editIndex, newTask: taskInput }));
       setEditIndex(null);
     } else {
-      setTasks([...tasks, taskInput]);
-      dispatch(addtodolist([...tasks, taskInput]));
+      dispatch(addtodolist(taskInput));
     }
-
     setTaskInput("");
   };
 
@@ -30,9 +31,7 @@ const ViewTask = () => {
   };
 
   const handleDeleteTask = (index) => {
-    const updatedTasks = tasks.filter((_, i) => i !== index);
-    setTasks(updatedTasks);
-    dispatch(removeList(updatedTasks));
+    dispatch(removeList(index));
   };
 
   return (
