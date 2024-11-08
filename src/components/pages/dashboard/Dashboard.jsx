@@ -14,7 +14,7 @@ const Dashboard = () => {
 
   useEffect(() => {
     const storedAccessToken = localStorage.getItem("authToken");
-    if (storedAccessToken && userDetailslist.length === 0) {
+    if (userDetailslist.length === 0) {
       getAuthUser(storedAccessToken);
     }
   }, [userDetailslist.length]);
