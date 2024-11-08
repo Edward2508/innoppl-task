@@ -4,12 +4,14 @@ import logo from "../../../../images/service.png";
 import { useDispatch } from "react-redux";
 import { logout } from "../../../../utils/store/authUserSlice";
 import { exit } from "../../../../utils/store/todoListSlice";
+import { clearSkills } from "../../../../utils/store/skillsSlice";
 
 const Sidebar = () => {
   const dispatch = useDispatch();
   const handleLogout = () => {
     dispatch(logout());
     dispatch(exit());
+    dispatch(clearSkills());
     localStorage.clear();
   };
   return (
@@ -33,6 +35,11 @@ const Sidebar = () => {
           <li className="nav-item">
             <Link className="nav-link text-dark" to="/todolist">
               Todo Management
+            </Link>
+          </li>
+          <li className="nav-item">
+            <Link className="nav-link text-dark" to="/skills">
+              Skills
             </Link>
           </li>
           <li className="nav-item">

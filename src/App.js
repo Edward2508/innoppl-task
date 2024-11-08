@@ -9,6 +9,7 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Allusers from "./components/pages/allusers/Allusers";
 import ViewTask from "./components/pages/todoTask/ViewTask";
+import Skills from "./components/pages/skillsList/Skills";
 
 const router = createBrowserRouter([
   {
@@ -26,6 +27,10 @@ const router = createBrowserRouter([
   {
     path: "/todolist",
     element: <ViewTask />,
+  },
+  {
+    path: "/skills",
+    element: <Skills />,
   },
 ]);
 

@@ -59,32 +59,35 @@ const ViewTask = () => {
               {editIndex !== null ? "Update" : "Add"}
             </button>
           </div>
-          <div className="mt-3 task-list">
-            <ul className="list-group">
-              {tasks.map((task, index) => (
-                <li
-                  key={index}
-                  className="d-flex justify-content-between align-items-center ps-5 pe-5"
-                >
-                  {`${index + 1}. ${task}`}
-                  <div>
-                    <button
-                      className="btn btn-warning me-2 m-3"
-                      onClick={() => handleEditTask(index)}
-                    >
-                      Edit
-                    </button>
-                    <button
-                      className="btn btn-danger m-3"
-                      onClick={() => handleDeleteTask(index)}
-                    >
-                      Delete
-                    </button>
-                  </div>
-                </li>
-              ))}
-            </ul>
-          </div>
+
+          {tasks.length > 0 && (
+            <div className="mt-3 task-list">
+              <ul className="list-group">
+                {tasks.map((task, index) => (
+                  <li
+                    key={index}
+                    className="d-flex justify-content-between align-items-center ps-5 pe-5"
+                  >
+                    {`${index + 1}. ${task}`}
+                    <div>
+                      <button
+                        className="btn btn-warning me-2 m-3"
+                        onClick={() => handleEditTask(index)}
+                      >
+                        Edit
+                      </button>
+                      <button
+                        className="btn btn-danger m-3"
+                        onClick={() => handleDeleteTask(index)}
+                      >
+                        Delete
+                      </button>
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
         </div>
       </div>
     </div>
